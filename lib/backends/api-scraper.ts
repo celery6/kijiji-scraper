@@ -97,6 +97,8 @@ export function scrapeAdElement(elem: cheerio.Element): AdInfo | null {
     const adPrice = $("ad\\:price types\\:amount").text();
     if (isNumber(adPrice)) {
         info.attributes["price"] = Number(adPrice);
+    } else {   
+        info.attributes["price"] = adPrice;
     }
 
     const adLocation = $("ad\\:ad-address types\\:full-address").text();
